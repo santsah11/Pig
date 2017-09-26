@@ -1,0 +1,27 @@
+Here are some pig command that we can perform on data. 
+how to load the file in to pig: 
+#Command:pig -x local // to go to the command line in linux with pig.. 
+
+pig -x local
+#Command:emp = LOAD '/home/cloudera/wrt' AS (id:int, sal:int, name:chararray); // loaded the file now need to dump it 
+# DUMP emp;
+ ****************************** another comamnd 
+ 
+#Command:grunt>filtered_emp = FILTER emp BY sal>13000; // Again Dump the bag fileterd_emp too see the result. 
+
+filtered_emp = FILTER emp BY sal>13000;
+
+*****************************************************Grouping Data***********************************************************************************
+
+#Command:grouped_emp = GROUP emp BY sal;
+grouped_emp = GROUP emp BY sal;
+#Command:DUMP grouped_emp;
+DUMP grouped_emp;
+#Command:DESCRIBE grouped_emp;
+DESCRIBE grouped_emp;
+#Command:groued_emp = GROUP emp ALL;
+groued_emp = GROUP emp ALL;
+#Command:max_sal = FOREACH grouped_emp GENERATE group, MAX(emp.sal);
+max_sal = FOREACH grouped_emp GENERATE group, MAX(emp.sal);
+#Command:DUMP max_sal;
+DUMP max_sal;
